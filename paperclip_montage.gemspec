@@ -14,18 +14,28 @@ Gem::Specification.new do |s|
   s.date = "2014-12-11"
   s.description = "This module stores the image files in Redis"
   s.email = ["paperclip+montage@specialbrands.net"]
+  s.extra_rdoc_files = [
+    "README.md"
+  ]
   s.files = [
     ".rspec",
     "Gemfile",
     "Gemfile.lock",
+    "Guardfile",
+    "README.md",
     "Rakefile",
+    "config/Guardfile",
     "lib/generators/paperclip_montage/USAGE",
     "lib/generators/paperclip_montage/paperclip_montage_generator.rb",
     "lib/paperclip/montage.rb",
     "lib/paperclip/myversion.rb",
+    "lib/paperclip/watermark.rb",
+    "lib/paperclip_montage.rb",
     "paperclip_montage.gemspec",
     "spec/paperclip/montage_spec.rb",
-    "spec/spec_helper.rb"
+    "spec/spec_helper.rb",
+    "spec/tmp/montage.jpg",
+    "spec/tmp/test.jpg"
   ]
   s.homepage = "http://github.com/webhat/paperclip_montage"
   s.licenses = ["LGPLv2"]
