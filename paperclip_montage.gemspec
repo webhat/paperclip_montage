@@ -21,8 +21,10 @@ Gem::Specification.new do |s|
     "Rakefile",
     "lib/generators/paperclip_montage/USAGE",
     "lib/generators/paperclip_montage/paperclip_montage_generator.rb",
+    "lib/paperclip/montage.rb",
     "lib/paperclip/myversion.rb",
     "paperclip_montage.gemspec",
+    "spec/paperclip/montage_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/webhat/paperclip_montage"
