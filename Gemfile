@@ -18,7 +18,6 @@ else
 end
 
 gem 'paperclip'
-gem 'redis'
 
 group :development do
   gem 'shoulda', '>= 0'

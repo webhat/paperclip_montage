@@ -21,9 +21,9 @@ Bundler.setup
 
 require 'paperclip' # and any other gems you need
 require 'paperclip_montage' # and any other gems you need
-#require 'paperclip-app/config/environment'
-#require 'rails/all'
-#require 'rspec/rails'
+require 'rails-app/config/environment'
+require 'rails/all'
+require 'rspec/rails'
 require "paperclip/matchers"
 
 RSpec.configure do |config|

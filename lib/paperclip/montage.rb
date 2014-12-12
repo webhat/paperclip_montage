@@ -5,6 +5,8 @@ module Paperclip
 			super
 			@file = file
 
+			@format           = options[:format]
+
 			@current_format   = File.extname(@file.path)
 			@basename         = File.basename(@file.path, @current_format)
 		end
