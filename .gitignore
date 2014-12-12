@@ -1,2 +1,4 @@
 doc
 .yardoc
+spec/rails-app/Gemfile.lock
+Gemfile.lock
