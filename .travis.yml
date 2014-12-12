@@ -32,7 +32,7 @@ matrix:
 #     tags: true
 #     repo: webhat/paperclip_montage
 script:
-- cd spec/paperclip-app/
+- cd spec/rails-app/
 - bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - cd ../..
