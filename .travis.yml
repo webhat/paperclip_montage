@@ -33,6 +33,7 @@ matrix:
 #     repo: webhat/paperclip_montage
 script:
 - cd spec/rails-app/
+- bundle install
 - bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - cd ../..
