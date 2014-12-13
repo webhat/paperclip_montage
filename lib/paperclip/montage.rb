@@ -7,7 +7,8 @@ module Paperclip
 			super
 			@file            =  file
 			@format          =  options[:format]
-			@height, @width  =  options[:geometry].split('x')
+			@height, @width  =  '100', '100'
+			@height, @width  =  options[:geometry].split('x') unless options[:geometry].nil?
 			@current_format  =  File.extname(@file.path)
 			@basename        =  File.basename(@file.path,  @current_format)
 			@whiny           =  options[:whiny].nil? ? true : options[:whiny]
