@@ -101,3 +101,12 @@ RSpec.configure do |config|
 
 	config.include Paperclip::Shoulda::Matchers
 end
+
+
+def get_fixture(file_type = :jpg, valid = 'valid')
+	file_name     = "#{valid}.#{file_type}"
+	fixtures_dir  = File.join(File.dirname(__FILE__), 'fixtures')
+	fixture_path  = File.join(fixtures_dir, file_name)
+
+	File.open(fixture_path)
+end
