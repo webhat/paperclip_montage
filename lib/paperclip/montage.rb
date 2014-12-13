@@ -19,6 +19,7 @@ module Paperclip
 			dst = Tempfile.new([@basename, @format].compact.join("."))
 			dst.binmode
 
+			# -title 'Certificate'
 			args =  "-background '#ffffff' -geometry #{height}x#{width}+#{grid} #{input_files_text} #{output_file dst}"
 
 			Paperclip.run(command, args)
