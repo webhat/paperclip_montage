@@ -17,8 +17,8 @@ else
 	"~> #{rails_version}"
 end
 
-gem 'paperclip', '~> 4.1.0'
 gem 'paperclip_montage', path: '../../'
+gem 'paperclip', '~> 4.1.0'
 
 group :development, :test do
   gem 'guard-rspec', '>= 0'
