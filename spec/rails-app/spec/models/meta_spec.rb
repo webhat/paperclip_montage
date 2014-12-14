@@ -38,5 +38,11 @@ RSpec.describe Meta do
 	end
 	it 'takes multiple files from avatar' do
 		meta = described_class.new montage: File.open('../fixtures/valid.jpg')
+		(1..4).each do |i|
+			meta.avatars << Avatar.create!(avatar: File.open("../fixtures/valid#{i}.png"))
+		end
+		meta.save
+		meta.reprocess_montage
+		meta.destroy
 	end
 end

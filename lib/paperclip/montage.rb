@@ -7,13 +7,36 @@ module Paperclip
 			super
 			@file            =  file
 			@format          =  options[:format]
-			@height, @width  =  '100', '100'
-			@files           =  options[:source] unless options[:source].nil?
-			@num_of_imgs     =  options[:source].nil? ? 4 : options[:source].length
-			@height, @width  =  options[:geometry].split('x') unless options[:geometry].nil?
+			@source          =  options[:source]
+			setup_montage_sources @source
+			setup_geometry options[:geometry]
 			@current_format  =  File.extname(@file.path)
 			@basename        =  File.basename(@file.path,  @current_format)
 			@whiny           =  options[:whiny].nil? ? true : options[:whiny]
+			@attachment      =  attachment
+		end
+
+		def setup_geometry geometry
+			@height, @width  =  '100', '100'
+			@height, @width  =  geometry.split('x') unless geometry.nil?
+		end
+
+		def setup_montage_sources source
+			source_instance_vars
+
+			if source.is_a?(Symbol)
+				return if @attachment.instance.nil?
+				source = @attachment.instance.send(source).map { |f| File.open(f.avatar.path( :original )) }
+			end
+
+			return if source.nil? || source.empty?
+
+			source_instance_vars source, source.length
+		end
+
+		def source_instance_vars files = nil, imgs = 4
+			@files = files
+			@num_of_imgs = imgs
 		end
 
 		def make

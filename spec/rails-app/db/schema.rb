@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212000731) do
+ActiveRecord::Schema.define(version: 20141214193102) do
 
   create_table "avatars", force: true do |t|
     t.string   "avatar_file_name"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20141212000731) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "avatars_meta", force: true do |t|
+    t.integer  "meta_id"
+    t.integer  "avatar_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "avatars_meta", ["avatar_id"], name: "index_avatars_meta_on_avatar_id"
+  add_index "avatars_meta", ["meta_id"], name: "index_avatars_meta_on_meta_id"
 
   create_table "meta", force: true do |t|
     t.string   "montage_file_name"

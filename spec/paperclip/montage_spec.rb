@@ -36,5 +36,21 @@ RSpec.describe Paperclip::Montage do
 			expect(tempfile).to be_kind_of(Tempfile)
 			#ObjectSpace.undefine_finalizer(tempfile)
 		end
+
+		it 'creates a montage with source nil' do
+			options = {geometry: '200x200', source: nil}
+			montage = described_class.new @file, options
+			tempfile = montage.make
+			expect(tempfile).to be_kind_of(Tempfile)
+			#ObjectSpace.undefine_finalizer(tempfile)
+		end
+
+		it 'creates a montage with source empty' do
+			options = {geometry: '200x200', source: []}
+			montage = described_class.new @file, options
+			tempfile = montage.make
+			expect(tempfile).to be_kind_of(Tempfile)
+			#ObjectSpace.undefine_finalizer(tempfile)
+		end
 	end
 end
