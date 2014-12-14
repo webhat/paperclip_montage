@@ -6,6 +6,8 @@ Paperclip Montages aim is to make it easier to create Paperclip avatars for meta
 
 This was build for [Oplerno](http://www.oplerno.com/)'s online education platform for combining course avatars so they can be displayed as certificate avatars.
 
+[![Build Status](https://travis-ci.org/webhat/paperclip_montage.svg)](https://travis-ci.org/webhat/paperclip_montage)
+
 Installation
 ============
 
