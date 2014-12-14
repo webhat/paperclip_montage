@@ -36,4 +36,7 @@ RSpec.describe Meta do
 		expect(thumb).to be < original
 		expect(meta.montage).to_not be_nil
 	end
+	it 'takes multiple files from avatar' do
+		meta = described_class.new montage: File.open('../fixtures/valid.jpg')
+	end
 end

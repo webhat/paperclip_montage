@@ -8,6 +8,8 @@ module Paperclip
 			@file            =  file
 			@format          =  options[:format]
 			@height, @width  =  '100', '100'
+			@files           =  options[:source] unless options[:source].nil?
+			@num_of_imgs     =  options[:source].nil? ? 4 : options[:source].length
 			@height, @width  =  options[:geometry].split('x') unless options[:geometry].nil?
 			@current_format  =  File.extname(@file.path)
 			@basename        =  File.basename(@file.path,  @current_format)
@@ -49,12 +51,13 @@ module Paperclip
 		end
 
 		def input_files
-			[
-				absolute_file( @file ),
-				absolute_file( @file ),
-				absolute_file( @file ),
-				absolute_file( @file )
-			]
+			(0..@num_of_imgs-1).collect do |i|
+				if @files.nil?
+					absolute_file( @file )
+				else
+					absolute_file( @files[i] )
+				end
+			end
 		end
 
 		def output_file dst

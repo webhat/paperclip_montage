@@ -5,3 +5,4 @@ Gemfile.lock
 spec/rails-app/public/system/
 spec/paperclip-montage_spec.rb
 tmp
+tags
