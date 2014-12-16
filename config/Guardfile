@@ -1,7 +1,9 @@
+require 'fileutils'
 
 guard :rspec, cmd: 'bundle exec rspec' do
 	watch(%r{^spec/.+_spec\.rb$})
 	watch(%r{^lib/(.+)\.rb})     { |m| "spec/#{m[1]}_spec.rb" }
+	watch(%r{^lib/(.+)\.rb})     { FileUtils.touch('spec/rails-app/spec/spec_helper.rb') }
 	watch('spec/spec_helper.rb')           { "spec" }
 	watch ("config/Guardfile") { UI.info "Exiting guard because config changed"; exit 0 }
 

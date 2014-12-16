@@ -26,7 +26,14 @@ module Paperclip
 
 			if source.is_a?(Symbol)
 				return if @attachment.instance.nil?
-				source = @attachment.instance.send(source).map { |f| File.open(f.avatar.path( :original )) }
+				source = @attachment.instance.send(source).map { |f|
+					if f.avatar.options[:storage] == :filesystem
+						File.open(f.avatar.path( :original ))
+					else
+						file_name = "tmp/#{f.id}-montage.png" #Dir::Tmpname.create(['montage', '.png']) { }
+						f.avatar.copy_to_local_file( :original, file_name )
+					end
+				}
 			end
 
 			return if source.nil? || source.empty?
